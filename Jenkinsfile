@@ -17,17 +17,7 @@ stage('Build the code') {
             }
         }
 
-stage('Build Docker Image') {
-            steps {
-                sh '''
-               docker build . --tag saikumargudisa/web-app:latest
-               docker tag web-app:latest saikumargudisa/web-app:latest
-                
-                '''
-                
-            }
-        }
-   
+
 
        
       

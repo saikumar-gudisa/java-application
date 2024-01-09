@@ -16,7 +16,19 @@ stage('Build the code') {
                 sh 'mvn clean install'
             }
         }
-      
+
+
+stage('Build Docker Image') {
+            steps {
+                sh '''
+               docker build . --tag web-application:latest
+               docker tag web-application:latest saikumargudisa/web-application
+                
+                '''
+                
+            }
+        }
+   
        
       
     }

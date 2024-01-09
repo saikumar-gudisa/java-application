@@ -20,8 +20,8 @@ stage('Build the code') {
 stage('Build Docker Image') {
             steps {
                 sh '''
-               docker build . --tag web-application:$BUILD_NUMBER
-               docker tag web-application:latest saikumargudisa/web-application:$BUILD_NUMBER
+               docker build . --tag web-application:19
+               docker tag web-application:latest saikumargudisa/web-application:19
                 
                 '''
                 

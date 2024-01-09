@@ -17,7 +17,6 @@ stage('Build the code') {
             }
         }
 
-
 stage('Build Docker Image') {
             steps {
                 sh '''
@@ -29,6 +28,7 @@ stage('Build Docker Image') {
             }
         }
    
+
        
       
     }

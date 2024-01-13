@@ -19,14 +19,13 @@ stage('Build the code') {
 
 
         
-        stage('Build and Push Docker Image') {
+        stage('Build Docker Image') {
             steps {
-                script {
-                    docker.image('docker:dind').inside('-u root') {
-                        // Your Docker commands go here
-                        sh 'docker build -t web-application:latest .'
-                    }
-                }
+                sh '''
+                docker build . --tag web-application:latest
+                docker tag web-application:latest saikumar/webapplication
+
+                '''
             }
         }
     

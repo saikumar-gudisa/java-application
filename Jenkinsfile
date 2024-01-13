@@ -17,19 +17,17 @@ stage('Build the code') {
             }
         }
 
-
-
-        stage('Build Docker Image') {
+ stage('Build Docker Image') {
             steps {
-                script {
-                    // Define your Docker image name and tag
-                    def dockerImage = 'saikumargudisa/web-application:latest'
-
-                    // Build the Docker image
-                    sh "docker build -t $dockerImage ."
-                }
+                sh '''
+               docker build . --tag web-application:$BUILD_NUMBER
+               docker tag web-application:$BUILD_NUMBER saikumargudisa/web-application:$BUILD_NUMBER
+                
+                '''
+                
             }
         }
+    
 
 
 

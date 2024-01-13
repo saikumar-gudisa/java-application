@@ -17,16 +17,20 @@ stage('Build the code') {
             }
         }
 
-         stage('Build Docker Image') {
+
+
+        stage('Build Docker Image') {
             steps {
-                sh '''
-              docker build . --tag web-app:latest
-              docker tag web-app:latest a0alrhqhzjivs.jfrog.io/web-application/web-app:latest
-                
-                '''
-                
+                script {
+                    // Define your Docker image name and tag
+                    def dockerImage = 'saikumargudisa/web-application:latest'
+
+                    // Build the Docker image
+                    sh "docker build -t $dockerImage ."
+                }
             }
         }
+
 
 
        

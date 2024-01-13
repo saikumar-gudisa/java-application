@@ -21,17 +21,21 @@ pipeline {
             }
         }
 
+        
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                docker build . --tag web-application:latest
+                docker tag web-application:latest saikumar/webapplication
+
+                '''
+            }
+        }
+   
+
 
         
-        stage('Build and Push Docker Image') {
-            steps {
-                script {
-                    docker.image('docker:dind').inside('-u root') {
-                        // Your Docker commands go here
-                        sh 'docker build -t web-application:latest .'
-                    }
-                }
-            }
+       
         }
     }
 }

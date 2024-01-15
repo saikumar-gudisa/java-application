@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                 docker build . --tag web-application:latest
-                docker tag web-application:latest saikumar/webapplication:latest
+                docker tag web-application:latest saikumargudisa/webapplication:latest
 
                 '''
             }
@@ -37,7 +37,7 @@ pipeline {
                   withCredentials([usernamePassword(credentialsId: 'Dockerhub-username-password', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                       sh '''
                       docker login -u $DOCKERHUB_USERNAME  -p $DOCKERHUB_PASSWORD
-                      docker push saikumar/webapplication:latest
+                      docker push saikumargudisa/webapplication:latest
 
 
                       

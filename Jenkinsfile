@@ -25,7 +25,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build . --tag web-application:latest
+                docker build . --tag web-application:$BUILD_NUMBER
                 docker tag web-application:$BUILD_NUMBER saikumargudisa/webapplication:$BUILD_NUMBER
 
                 '''

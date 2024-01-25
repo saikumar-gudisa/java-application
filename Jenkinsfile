@@ -21,16 +21,7 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                sh '''
-              docker build . --tag web-application:$BUILD_NUMBER
-              docker tag web-application:$BUILD_NUMBER 108290765801.dkr.ecr.us-east-1.amazonaws.com/web-application:$BUILD_NUMBER
-                
-                '''
-                
-            }
-        }  
+       
 
         stage('Build Docker Image') {
             steps {
